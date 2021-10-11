@@ -11,17 +11,20 @@
     <groupId>com.kuang</groupId>
     <artifactId>helloworld</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
     <name>helloworld</name>
     <description>Demo project for Spring Boot</description>
+
     <properties>
         <java.version>1.8</java.version>
     </properties>
     <dependencies>
+        <!--web依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
+        <!--单元测试，springboot都是使用这个开头的-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -30,6 +33,7 @@
     </dependencies>
 
     <build>
+        <!--打包插件-->
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
