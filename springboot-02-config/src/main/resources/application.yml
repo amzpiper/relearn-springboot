@@ -1,27 +1,27 @@
-#ÆÕÍ¨key: value
+#æ™®é€škey: value
 server:
   port: 8081
 
-#´æ¶ÔÏó
+#å­˜å¯¹è±¡
 student:
   age: 22
   name: qinjiang
 
-#´æ¶ÔÏó-ĞĞÄÚĞ´·¨
+#å­˜å¯¹è±¡-è¡Œå†…å†™æ³•
 student2: {name: qinjiang,age: 3}
 
-#Êı×é
+#æ•°ç»„
 array:
   - cat
   - dog
 
-#Êı×é-ĞĞÄÚĞ´·¨
+#æ•°ç»„-è¡Œå†…å†™æ³•
 pets: [cat,dog]
 
-#ÌîĞ´personÊı¾İ
+#å¡«å†™personæ•°æ®
 person:
-  name: qinjiang
-  age: 23
+  name: qinjiang${random.uuid}
+  age: ${random.int}
   happy: false
   birthDate: 2021/11/11
   maps: {k1: v1,k2: v2}
@@ -30,5 +30,5 @@ person:
     - music
     - girl
   dog:
-    name: Íú²Æ
+    name: ${person.hello:hello}_æ—ºè´¢
     age: 3
