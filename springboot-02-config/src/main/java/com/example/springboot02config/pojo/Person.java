@@ -11,7 +11,10 @@ import java.util.Map;
  * @author guoyh
  */
 @Component
-//绑定yml中配置的person值
+/**
+ * 将yml中配置的person值，映射到组件中
+ * 参数prefix = person : 将配置文件中的person下所有属性一一对应
+ */
 @ConfigurationProperties(prefix = "person")
 public class Person {
 
