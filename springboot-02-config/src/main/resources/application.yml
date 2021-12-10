@@ -1,1 +1,34 @@
+#普通key: value
+server:
+  port: 8081
 
+#存对象
+student:
+  age: 22
+  name: qinjiang
+
+#存对象-行内写法
+student2: {name: qinjiang,age: 3}
+
+#数组
+array:
+  - cat
+  - dog
+
+#数组-行内写法
+pets: [cat,dog]
+
+#填写person数据
+person:
+  name: qinjiang
+  age: 23
+  happy: false
+  birthDate: 2021/11/11
+  maps: {k1: v1,k2: v2}
+  list:
+    - code
+    - music
+    - girl
+  dog:
+    name: 旺财
+    age: 3
