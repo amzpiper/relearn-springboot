@@ -11,6 +11,8 @@ public class HelloworldApplication {
 
     public static void main(String[] args) {
         //将HelloworldApplication启动
+        //SpringApplication
+        //参数一：应用入口类，参数二：命令行参数
         SpringApplication.run(HelloworldApplication.class, args);
     }
 
