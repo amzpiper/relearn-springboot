@@ -42,7 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //关闭防攻击
         http.csrf().disable();
 
-        //记住我功能
+        //记住我功能,默认保存两周
         http.rememberMe();
     }
 
