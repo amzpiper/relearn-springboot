@@ -35,7 +35,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin();
 
         //实例：开启/logout注销功能，and then redirect to "/login?success".
-        http.logout();
+        //清空cookie和session
+        http.logout().deleteCookies("remove").invalidateHttpSession(true)
+                //注销后回到首页
+                .logoutSuccessUrl("/");
+        //关闭防攻击
+        http.csrf().disable();
     }
 
     /**
