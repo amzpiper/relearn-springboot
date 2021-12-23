@@ -41,6 +41,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/");
         //关闭防攻击
         http.csrf().disable();
+
+        //记住我功能
+        http.rememberMe();
     }
 
     /**
