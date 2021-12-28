@@ -10,7 +10,7 @@
         <!--如果未登录显示-->
         <div sec:authorize="!isAuthenticated()">
             <li><a th:href="@{/index}">首页</a></li>
-            <li><a th:href="@{/login}">登录</a></li>
+            <li><a th:href="@{/toLogin}">登录</a></li>
         </div>
         <!--如果登录了显示-->
         <div sec:authorize="isAuthenticated()">

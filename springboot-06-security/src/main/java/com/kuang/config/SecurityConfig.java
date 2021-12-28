@@ -32,7 +32,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/level3/**").hasRole("vip3");
 
         //实例：开启登录功能，没有权限默认跳转登录页面,自动会进入/login
-        http.formLogin();
+        http.formLogin()
+                //指定登录页面
+                .loginPage("/toLogin")
+                //指定处理登录请求的url
+                .loginProcessingUrl("/login");
+        //记住我功能,默认保存两周
+        http.rememberMe().rememberMeParameter("remember-me");
 
         //实例：开启/logout注销功能，and then redirect to "/login?success".
         //清空cookie和session
@@ -41,9 +47,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/");
         //关闭防攻击
         http.csrf().disable();
-
-        //记住我功能,默认保存两周
-        http.rememberMe();
     }
 
     /**
