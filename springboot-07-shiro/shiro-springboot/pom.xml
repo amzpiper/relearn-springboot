@@ -25,6 +25,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <!--
+        Subject 用户
+        SecurityManager 管理所以用户
+        Realm 连接数据
+        -->
+        <!--导入shiro，整合spring的包-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
