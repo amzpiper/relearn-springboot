@@ -13,11 +13,20 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ShiroConfig {
 
-    //创建realm对象，需要自定义
+    /**
+     * 第一步：创建realm对象，需要自定义创建realm对象，需要自定义
+     */
     @Bean
     public UserRealm userRealm() {
         return new UserRealm();
     }
 
+    /**
+     * 第二步：DefaultWebSecurityManager
+     */
+
+    /**
+     * 第三步：ShiroFilterFactoryBean
+     */
 
 }
