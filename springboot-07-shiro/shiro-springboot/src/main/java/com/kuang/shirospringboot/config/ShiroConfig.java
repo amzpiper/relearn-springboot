@@ -1,8 +1,11 @@
 package com.kuang.shirospringboot.config;
 
+import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -58,13 +61,17 @@ public class ShiroConfig {
             roles: 拥有某个角色权限才能访问;
         */
         Map<String, String> filterMap = new LinkedHashMap<>();
-        filterMap.put("/user/add","authc");
-        filterMap.put("/user/update","authc");
+        //filterMap.put("/user/add","authc");
+        //filterMap.put("/user/update","authc");
+        filterMap.put("/user/add","perms[user:add]");
+        filterMap.put("/user/update","perms[user:update]");
         filterMap.put("/user/*","authc");
         filterMap.put("/toLogin","anon");
         factoryBean.setFilterChainDefinitionMap(filterMap);
         // 设置登录页面
         factoryBean.setLoginUrl("/toLogin");
+        // 设置未授权页面
+        factoryBean.setUnauthorizedUrl("/unAuthorized");
         return factoryBean;
     }
 

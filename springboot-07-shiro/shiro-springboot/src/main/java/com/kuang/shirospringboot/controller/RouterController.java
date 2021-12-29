@@ -5,10 +5,12 @@ import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @author guoyh
@@ -64,4 +66,9 @@ public class RouterController {
         }
     }
 
+    @ResponseBody
+    @RequestMapping("/unAuthorized")
+    public String unAuthorized(String username, String password, Model model) {
+        return "未经授权，无法访问此页面";
+    }
 }
