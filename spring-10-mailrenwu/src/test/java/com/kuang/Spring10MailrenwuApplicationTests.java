@@ -1,5 +1,6 @@
 package com.kuang;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -53,4 +54,38 @@ class Spring10MailrenwuApplicationTests {
         // 发送邮件
         javaMailSender.send(mimeMessage);
     }
+
+    /**
+     * 封装为方法
+     * @param html
+     * @param subject
+     * @param text
+     * @param to
+     *
+     * @throws MessagingException
+     *
+     * @author gyha
+     */
+    @Test
+    void sendMail(Boolean html, String subject, String text,String to) throws MessagingException {
+        // 一个复杂的邮件
+        MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+        // 组装为helper,开启多文件,设置编码
+        MimeMessageHelper helper = new MimeMessageHelper(mimeMessage,true,"utf-8");
+        // 主题
+        helper.setSubject("复杂邮件测试");
+        // 内容，开启html解析
+        helper.setText("<h1>复杂邮件测试</h1><p>完成发送，谢谢！！！</p>", true);
+        // 添加附件
+        helper.addAttachment("1.png", new File("D:\\1.png"));
+        helper.addAttachment("1.png", new File("D:\\1.png"));
+        // 发送者
+        helper.setFrom("15512702732@163.com");
+        // 发送给谁
+        helper.setTo("15512702732@163.com");
+        // 发送邮件
+        javaMailSender.send(mimeMessage);
+    }
+
+
 }
